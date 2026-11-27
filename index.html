@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1f4a38">
+  <title>Tiệm hoa Xuân Mai – Bán tất cả các loại hoa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --mai: #f0b400;        /* vàng hoa mai */
+      --mai-pale: #fff4c7;
+      --la: #1f4a38;         /* xanh lá đậm */
+      --la-soft: #dfeee4;
+      --hong: #e8607a;       /* hồng cánh hoa */
+      --giay: #fffdf6;
+      --chu: #23342c;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--giay);
+      color: var(--chu);
+      font-family: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.65;
+    }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, "Times New Roman", serif; line-height: 1.2; margin: 0; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid var(--hong); outline-offset: 3px; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; padding-bottom: env(safe-area-inset-bottom, 0px); }
+    header.top { padding-top: calc(1rem + env(safe-area-inset-top, 0px)); }
+
+    header.top {
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 1rem; padding: 1rem clamp(1rem, 5vw, 4rem);
+      background: var(--la); color: #fff;
+    }
+    .logo { font-family: "Playfair Display", Georgia, serif; font-weight: 800; font-size: 1.35rem; text-decoration: none; }
+    .logo span { color: var(--mai); }
+    nav a { text-decoration: none; margin-left: 1.25rem; font-weight: 500; }
+    nav a:hover { color: var(--mai); }
+    header.top { position: relative; }
+    .gio-hang { display: inline-flex; align-items: center; gap: .45rem; margin-left: 1.25rem; padding: .45rem .95rem; border: 2px solid rgba(255,255,255,.35); border-radius: 999px; color: #fff; text-decoration: none; font-weight: 500; transition: color .2s, border-color .2s; }
+    .gio-hang:hover { color: var(--mai); border-color: var(--mai); }
+    .gio-hang svg { display: block; }
+
+    .hero {
+      background: var(--mai-pale);
+      padding: clamp(3rem, 9vw, 6.5rem) clamp(1rem, 5vw, 4rem);
+      display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; align-items: center;
+    }
+    .hero h1 { font-size: clamp(2.4rem, 6.5vw, 4.8rem); font-weight: 800; color: var(--la); }
+    .hero h1 em { font-style: italic; font-weight: 600; color: var(--hong); }
+    .hero p { font-size: 1.15rem; max-width: 34ch; margin: 1.25rem 0 1.75rem; }
+    .btn {
+      display: inline-block; background: var(--la); color: #fff; text-decoration: none;
+      padding: .8rem 1.6rem; border-radius: 999px; font-weight: 600;
+      transition: background .2s;
+    }
+    .btn:hover { background: var(--hong); }
+    .bouquet {
+      font-size: clamp(4rem, 13vw, 9rem); text-align: center; line-height: 1.1;
+      letter-spacing: .05em; user-select: none;
+    }
+
+    section { padding: clamp(2.5rem, 7vw, 5rem) clamp(1rem, 5vw, 4rem); }
+    section > h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); color: var(--la); margin-bottom: .5rem; }
+    section > .lead { max-width: 60ch; margin: 0 0 2rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1rem; }
+    .loai {
+      background: #fff; border: 2px solid var(--la-soft); border-radius: 18px;
+      padding: 1.25rem 1rem; text-align: center;
+    }
+    .loai .e { font-size: 2.6rem; display: block; }
+    .loai h3 { font-size: 1.15rem; margin-top: .4rem; color: var(--la); }
+    .loai p { margin: .3rem 0 0; font-size: .92rem; }
+    .loai .gia { display: inline-block; margin-top: .75rem; padding: .25rem .8rem; border-radius: 999px; background: var(--mai-pale); color: var(--la); font-weight: 600; font-size: .95rem; }
+    .loai .mua { display: block; width: max-content; margin: .65rem auto 0; padding: .5rem 1.6rem; border-radius: 999px; background: var(--la); color: #fff; text-decoration: none; font-weight: 600; transition: background .2s; }
+    .loai .mua:hover { background: var(--hong); }
+
+    .dip { background: var(--la); color: #fff; }
+    .dip > h2 { color: var(--mai); }
+    .tags { display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; margin: 0; list-style: none; }
+    .tags li { background: rgba(255,255,255,.12); padding: .5rem 1.1rem; border-radius: 999px; }
+
+    .gio { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .gio .big { font-family: "Playfair Display", Georgia, serif; font-size: clamp(2.6rem, 8vw, 5rem); font-weight: 800; color: var(--la); line-height: 1; }
+    .status { display: inline-block; margin-top: 1rem; padding: .4rem 1rem; border-radius: 999px; font-weight: 600; background: var(--la-soft); }
+    .status.open { background: #c9f0d6; color: #11663a; }
+    .status.closed { background: #fde0e5; color: #a52a45; }
+    table { border-collapse: collapse; width: 100%; max-width: 360px; }
+    td { padding: .5rem 0; border-bottom: 1px solid var(--la-soft); }
+    td:last-child { text-align: right; font-weight: 600; }
+
+    footer { background: var(--chu); color: #d7e3db; text-align: center; padding: 1.5rem 1rem; font-size: .95rem; }
+    footer .lienhe { margin: 0 0 .5rem; font-size: 1.15rem; font-weight: 600; color: #fff; }
+    footer .lienhe a { color: var(--mai); text-decoration: none; }
+    footer .lienhe a:hover { text-decoration: underline; }
+    footer .giao { display: inline-block; margin: 0 0 .9rem; padding: .35rem 1.2rem; border-radius: 999px; background: var(--mai); color: var(--la); font-weight: 700; font-size: 1.05rem; }
+
+    .gio-hang { position: relative; font: inherit; font-weight: 500; background: transparent; cursor: pointer; }
+    .badge { position: absolute; top: -7px; right: -7px; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--hong); color: #fff; font-size: .75rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .badge[hidden] { display: none; }
+    .gio-nen { position: fixed; inset: 0; background: rgba(20,40,30,.5); opacity: 0; visibility: hidden; transition: opacity .25s, visibility .25s; z-index: 50; }
+    .gio-nen.mo { opacity: 1; visibility: visible; }
+    .gio-panel { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); display: flex; flex-direction: column; background: var(--giay); color: var(--chu); transform: translateX(100%); visibility: hidden; transition: transform .28s ease, visibility .28s; z-index: 60; box-shadow: -8px 0 30px rgba(0,0,0,.2); padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+    .gio-panel.mo { transform: none; visibility: visible; }
+    .gio-dau { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; background: var(--la); color: #fff; }
+    .gio-dau h2 { font-size: 1.4rem; }
+    .dong { background: transparent; border: 0; color: #fff; font-size: 1.3rem; width: 2.5rem; height: 2.5rem; border-radius: 50%; cursor: pointer; }
+    .dong:hover { background: rgba(255,255,255,.15); }
+    .gio-ds { flex: 1; overflow-y: auto; padding: .5rem 1.25rem; }
+    .gio-trong { text-align: center; margin: 2.5rem 0; }
+    .dong-hang { display: flex; justify-content: space-between; align-items: center; gap: .75rem; padding: .85rem 0; border-bottom: 1px solid var(--la-soft); }
+    .thong-tin { display: flex; flex-direction: column; }
+    .thong-tin span { color: var(--la); font-weight: 600; }
+    .so-luong { display: flex; align-items: center; gap: .4rem; flex-shrink: 0; }
+    .so-luong button { width: 2.1rem; height: 2.1rem; border-radius: 50%; border: 2px solid var(--la-soft); background: #fff; color: var(--la); font-size: 1.2rem; line-height: 1; font-weight: 600; cursor: pointer; }
+    .so-luong button:hover { border-color: var(--hong); color: var(--hong); }
+    .so-luong .so { min-width: 3.6rem; text-align: center; }
+    .gio-chan { display: grid; gap: .6rem; padding: 1rem 1.25rem 1.25rem; border-top: 2px solid var(--la-soft); }
+    .tong { display: flex; justify-content: space-between; font-size: 1.15rem; }
+    .gio-chan .btn { text-align: center; }
+    .gio-chan .ghi-chu { margin: 0; font-size: .88rem; text-align: center; }
+    .btn.phu { background: transparent; color: var(--la); border: 2px solid var(--la); }
+    .btn.phu:hover { background: var(--la-soft); }
+    .btn[aria-disabled="true"] { opacity: .45; pointer-events: none; }
+    .xoa-het { background: none; border: 0; color: #a52a45; font: inherit; text-decoration: underline; cursor: pointer; padding: .25rem; }
+    @media (prefers-reduced-motion: reduce) { .gio-panel, .gio-nen { transition: none; } }
+
+    .dh-app { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .dh-form { background: #fff; border: 2px solid var(--la-soft); border-radius: 18px; padding: 1.25rem; }
+    .dh-form.sua { border-color: var(--mai); background: var(--mai-pale); }
+    .dh-form h3 { font-size: 1.25rem; color: var(--la); margin-bottom: 1rem; }
+    .dh label { display: block; margin-bottom: .25rem; font-size: .92rem; font-weight: 600; }
+    .dh input, .dh select { width: 100%; padding: .6rem .7rem; border: 2px solid #d5e3da; border-radius: 10px; background: #fff; color: inherit; font: inherit; }
+    .dh input:focus, .dh select:focus { border-color: var(--la); outline: none; box-shadow: 0 0 0 3px rgba(31,74,56,.18); }
+    .dh button { font: inherit; cursor: pointer; }
+    .dh-field { margin-bottom: .9rem; }
+    .dh-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+    .dh-thanhtien { margin: .2rem 0 1rem; }
+    .dh-thanhtien strong { color: var(--la); font-size: 1.15rem; }
+    .dh-nuthang { display: flex; flex-wrap: wrap; gap: .6rem; }
+    .dh-btn { border: 0; border-radius: 999px; padding: .65rem 1.4rem; background: var(--la); color: #fff; font-weight: 600; transition: background .2s; }
+    .dh-btn:hover { background: var(--hong); }
+    .dh-btn.phu { padding: calc(.65rem - 2px) calc(1.4rem - 2px); border: 2px solid var(--la); background: transparent; color: var(--la); }
+    .dh-btn.phu:hover { background: var(--la-soft); }
+    .dh-thongbao { min-height: 1.4rem; margin: .8rem 0 0; font-size: .92rem; font-weight: 600; color: #11663a; }
+    .dh-thongbao.dh-loi { color: #a52a45; }
+    .dh-ghichu { margin: 1rem 0 0; font-size: .82rem; color: #5b6e63; }
+    .dh-ghichu.dh-canhbao { color: #a52a45; font-weight: 600; }
+    .dh-tomtat { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: .75rem; margin-bottom: 1.25rem; }
+    .dh-o { padding: .9rem 1rem; border: 2px solid var(--la-soft); border-radius: 16px; background: #fff; }
+    .dh-nhan { font-size: .85rem; color: #4c6055; }
+    .dh-so { font-family: "Playfair Display", Georgia, serif; font-size: 1.7rem; font-weight: 800; line-height: 1.2; color: var(--la); }
+    .dh-o.dh-doanhthu { border-color: var(--la); background: var(--la); }
+    .dh-doanhthu .dh-nhan { color: #cfe3d6; }
+    .dh-doanhthu .dh-so { font-size: 2rem; color: var(--mai); }
+    .dh-khung { overflow-x: auto; border: 2px solid var(--la-soft); border-radius: 18px; background: #fff; }
+    .dh .dh-bang { width: 100%; min-width: 760px; max-width: none; border-collapse: collapse; }
+    .dh .dh-bang th, .dh .dh-bang td { padding: .7rem .8rem; border-bottom: 1px solid var(--la-soft); text-align: left; font-weight: 400; vertical-align: middle; }
+    .dh .dh-bang th { background: var(--la-soft); color: var(--la); font-size: .85rem; font-weight: 700; white-space: nowrap; }
+    .dh .dh-bang tr:last-child td { border-bottom: 0; }
+    .dh .dh-bang .dh-r { text-align: right; white-space: nowrap; }
+    .dh .dh-bang td.dh-ten { font-weight: 600; }
+    .dh .dh-bang td.dh-tien { font-weight: 700; color: var(--la); }
+    .dh .dh-bang tr.dh-dangsua td { background: var(--mai-pale); }
+    .dh .dh-bang td.dh-trong { padding: 2.5rem 1rem; text-align: center; color: #5b6e63; }
+    .dh select.dh-trangthai { width: auto; padding: .3rem .5rem; border-radius: 999px; font-size: .88rem; font-weight: 600; }
+    .dh select.dh-tt-moi { background: #fff4c7; border-color: #e6c75a; color: #7a5a00; }
+    .dh select.dh-tt-xuly { background: #dbeafe; border-color: #93b8e8; color: #1e4e8c; }
+    .dh select.dh-tt-xong { background: #c9f0d6; border-color: #7cc99a; color: #11663a; }
+    .dh-thaotac { display: flex; gap: .4rem; white-space: nowrap; }
+    .dh-nho { padding: .25rem .8rem; border: 2px solid #d5e3da; border-radius: 999px; background: #fff; color: var(--la); font-size: .88rem; font-weight: 600; }
+    .dh-nho:hover { border-color: var(--la); background: var(--la-soft); }
+    .dh-nho.xoa { color: #a52a45; }
+    .dh-nho.xoa:hover { border-color: #a52a45; background: #fde0e5; }
+    .dh-nho.xacnhan { border-color: #a52a45; background: #a52a45; color: #fff; }
+    .dh-nho.xacnhan:hover { border-color: #8a2038; background: #8a2038; }
+    @media (max-width: 900px) {
+      .dh-app { grid-template-columns: 1fr; }
+      .dh-tomtat { grid-template-columns: 1fr 1fr; }
+      .dh-o.dh-doanhthu { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 760px) {
+      .hero, .gio { grid-template-columns: 1fr; }
+      header.top { flex-wrap: wrap; justify-content: center; text-align: center; }
+      nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1rem; }
+      nav a { margin-left: 0; }
+      .hero { text-align: center; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+      .loai { padding: 1rem .6rem; }
+      .loai .e { font-size: 2.2rem; }
+      .loai h3 { font-size: 1.05rem; }
+      table { max-width: none; }
+      header.top { padding-left: 3.75rem; padding-right: 3.75rem; }
+      .gio-hang { position: absolute; top: calc(.85rem + env(safe-area-inset-top, 0px)); right: 1rem; margin-left: 0; padding: .45rem; }
+      .gio-hang span { display: none; }
+      nav a { padding: .4rem .2rem; }
+      .loai .gia { font-size: .85rem; padding: .25rem .6rem; }
+      .dh-form { padding: 1rem; }
+      .dh select.dh-trangthai { font-size: 1rem; padding: .4rem .6rem; }
+      .dh-nho { padding: .5rem 1rem; }
+      .dh-khung { overflow: visible; border: 0; background: transparent; }
+      .dh .dh-bang { min-width: 0; }
+      .dh .dh-bang thead { display: none; }
+      .dh .dh-bang, .dh .dh-bang tbody, .dh .dh-bang tr { display: block; width: 100%; }
+      .dh .dh-bang tr { margin-bottom: .85rem; border: 2px solid var(--la-soft); border-radius: 16px; background: #fff; overflow: hidden; }
+      .dh .dh-bang tr.dh-dangsua { border-color: var(--mai); }
+      .dh .dh-bang td { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .55rem .9rem; text-align: right; }
+      .dh .dh-bang td::before { content: attr(data-label); flex-shrink: 0; text-align: left; font-size: .85rem; font-weight: 600; color: #4c6055; }
+      .dh .dh-bang tr:last-child td { border-bottom: 1px solid var(--la-soft); }
+      .dh .dh-bang tr td:last-child { border-bottom: 0; }
+      .dh .dh-bang td.dh-ten { font-weight: 700; }
+      .dh .dh-bang td.dh-trong { display: block; text-align: center; }
+      .dh .dh-bang td.dh-trong::before { content: none; }
+      .dh-thaotac { flex-wrap: wrap; justify-content: flex-end; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="top">
+  <a class="logo" href="#">Xuân <span>Mai</span></a>
+  <nav>
+    <a href="#cac-loai-hoa">Các loại hoa</a>
+    <a href="#dip">Dịp tặng</a>
+    <a href="#gio-mo-cua">Giờ mở cửa</a>
+    <a href="#quan-ly-don">Quản lý đơn</a>
+  </nav>
+  <button class="gio-hang" id="mo-gio" type="button" aria-label="Mở giỏ hàng">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.4a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 7H6"/></svg>
+    <span>Giỏ hàng</span>
+    <b class="badge" id="so-luong" hidden>0</b>
+  </button>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Tiệm hoa <em>Xuân Mai</em></h1>
+    <p>Bán tất cả các loại hoa, từ một cành lẻ đến bó hoa lớn cho mọi dịp.</p>
+    <a class="btn" href="#gio-mo-cua">Xem giờ mở cửa</a>
+  </div>
+  <div class="bouquet" aria-hidden="true">🌼🌹<br>🌻🌷</div>
+</div>
+
+<section id="cac-loai-hoa">
+  <h2>Tiệm có đủ các loại hoa</h2>
+  <p class="lead">Hoa tươi mỗi ngày. Bạn cứ chọn loại hoa mình thích, tiệm sẽ gói thành bó hoặc cắm giỏ theo ý bạn.</p>
+  <div class="grid">
+    <div class="loai"><span class="e" aria-hidden="true">🌹</span><h3>Hoa hồng</h3><p>Nhiều màu, nhiều size</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🌻</span><h3>Hoa hướng dương</h3><p>Tươi sáng, rực rỡ</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🌷</span><h3>Hoa tulip</h3><p>Nhẹ nhàng, thanh lịch</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🌼</span><h3>Hoa cúc</h3><p>Cúc họa mi, cúc mẫu đơn</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🌸</span><h3>Hoa anh đào, đào, mai</h3><p>Đủ vị ngày xuân</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🌺</span><h3>Hoa ly, hoa lan</h3><p>Sang trọng, thơm lâu</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">🪻</span><h3>Oải hương, cẩm tú cầu</h3><p>Tím xanh dịu mắt</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+    <div class="loai"><span class="e" aria-hidden="true">💐</span><h3>Hoa theo yêu cầu</h3><p>Không thấy loại bạn cần? Cứ hỏi tiệm</p><div class="gia">10,000đ / 1 cành</div><a class="mua" href="tel:0903848079">Mua</a></div>
+  </div>
+</section>
+
+<section id="dip" class="dip">
+  <h2>Hoa cho mọi dịp</h2>
+  <p class="lead">Dù là chuyện vui hay buồn, tiệm đều có hoa phù hợp.</p>
+  <ul class="tags">
+    <li>Sinh nhật</li>
+    <li>Cưới hỏi</li>
+    <li>Khai trương</li>
+    <li>Valentine, 8/3, 20/10</li>
+    <li>Tốt nghiệp</li>
+    <li>Thăm bệnh</li>
+    <li>Chia buồn</li>
+    <li>Trang trí nhà cửa</li>
+  </ul>
+</section>
+
+<section id="gio-mo-cua">
+  <h2>Giờ mở cửa</h2>
+  <div class="gio">
+    <div>
+      <div class="big">8:00 – 20:00</div>
+      <div id="status" class="status">Mở cửa từ 8 giờ sáng đến 8 giờ tối</div>
+    </div>
+    <table>
+      <tr><td>Thứ Hai – Thứ Sáu</td><td>8:00 – 20:00</td></tr>
+      <tr><td>Thứ Bảy</td><td>8:00 – 20:00</td></tr>
+      <tr><td>Chủ Nhật</td><td>8:00 – 20:00</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="quan-ly-don" class="dh">
+  <h2>Quản lý đơn hàng</h2>
+  <p class="lead">Ghi lại và theo dõi đơn hàng của tiệm. Đơn được lưu ngay trong trình duyệt của máy đang dùng nên tải lại trang vẫn còn.</p>
+  <div class="dh-app">
+
+    <aside class="dh-form" id="dh-khung">
+      <h3 id="dh-tieude">Thêm đơn hàng</h3>
+      <form id="dh-form" autocomplete="off">
+        <div class="dh-field">
+          <label for="dh-ten">Tên khách hàng</label>
+          <input id="dh-ten" type="text" required maxlength="60" placeholder="Ví dụ: Chị Lan">
+        </div>
+        <div class="dh-field">
+          <label for="dh-hoa">Loại hoa</label>
+          <input id="dh-hoa" type="text" list="dh-ds-hoa" required maxlength="60" placeholder="Chọn hoặc tự gõ">
+          <datalist id="dh-ds-hoa">
+            <option value="Hoa hồng"></option>
+            <option value="Hoa hướng dương"></option>
+            <option value="Hoa tulip"></option>
+            <option value="Hoa cúc"></option>
+            <option value="Hoa mai"></option>
+            <option value="Hoa đào"></option>
+            <option value="Hoa ly"></option>
+            <option value="Hoa lan"></option>
+            <option value="Hoa oải hương"></option>
+            <option value="Hoa cẩm tú cầu"></option>
+          </datalist>
+        </div>
+        <div class="dh-row2">
+          <div class="dh-field">
+            <label for="dh-sl">Số lượng (cành)</label>
+            <input id="dh-sl" type="number" min="1" step="1" value="1" required inputmode="numeric">
+          </div>
+          <div class="dh-field">
+            <label for="dh-gia">Giá (đ / cành)</label>
+            <input id="dh-gia" type="number" min="0" step="1" value="10000" required inputmode="numeric">
+          </div>
+        </div>
+        <div class="dh-field">
+          <label for="dh-tt">Trạng thái</label>
+          <select id="dh-tt">
+            <option>Mới</option>
+            <option>Đang xử lý</option>
+            <option>Hoàn thành</option>
+          </select>
+        </div>
+        <div class="dh-thanhtien">Thành tiền: <strong id="dh-xem-tien">10,000đ</strong></div>
+        <div class="dh-nuthang">
+          <button type="submit" class="dh-btn" id="dh-luu">Thêm đơn</button>
+          <button type="button" class="dh-btn phu" id="dh-huy" hidden>Hủy sửa</button>
+        </div>
+        <p class="dh-thongbao" id="dh-thongbao" role="status" aria-live="polite"></p>
+      </form>
+      <p class="dh-ghichu" id="dh-ghichu">Dữ liệu chỉ nằm trên trình duyệt của máy này. Đổi máy, đổi trình duyệt hoặc xóa dữ liệu duyệt web thì đơn sẽ mất.</p>
+    </aside>
+
+    <div>
+      <div class="dh-tomtat">
+        <div class="dh-o dh-doanhthu">
+          <div class="dh-nhan">Tổng doanh thu (đơn Hoàn thành)</div>
+          <div class="dh-so" id="dh-doanhthu">0đ</div>
+        </div>
+        <div class="dh-o"><div class="dh-nhan">Mới</div><div class="dh-so" id="dh-moi">0</div></div>
+        <div class="dh-o"><div class="dh-nhan">Đang xử lý</div><div class="dh-so" id="dh-xuly">0</div></div>
+        <div class="dh-o"><div class="dh-nhan">Hoàn thành</div><div class="dh-so" id="dh-xong">0</div></div>
+      </div>
+      <div class="dh-khung">
+        <table class="dh-bang">
+          <thead>
+            <tr>
+              <th>Ngày</th>
+              <th>Khách hàng</th>
+              <th>Loại hoa</th>
+              <th class="dh-r">SL</th>
+              <th class="dh-r">Đơn giá</th>
+              <th class="dh-r">Thành tiền</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody id="dh-than"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="lien-he">
+  <p class="lienhe">Liên hệ đặt hoa: <a href="tel:0903848079">0903 848 079</a></p>
+  <p class="giao">Giao Hoa Miễn Phí</p>
+  © Tiệm hoa Xuân Mai · Bán tất cả các loại hoa · Mở cửa 8h sáng – 8h tối
+</footer>
+
+<div class="gio-nen" id="gio-nen"></div>
+<aside class="gio-panel" id="gio-panel" role="dialog" aria-modal="true" aria-labelledby="gio-tieude">
+  <div class="gio-dau">
+    <h2 id="gio-tieude">Giỏ hàng</h2>
+    <button type="button" class="dong" id="dong-gio" aria-label="Đóng giỏ hàng">✕</button>
+  </div>
+  <div class="gio-ds" id="gio-ds"></div>
+  <div class="gio-chan">
+    <div class="tong"><span>Tổng cộng</span><strong id="tong-tien">0đ</strong></div>
+    <a class="btn" id="dat-goi" href="tel:0903848079">Gọi đặt hàng</a>
+    <a class="btn phu" id="dat-nhan" href="sms:0903848079">Nhắn tin đặt hàng</a>
+    <p class="ghi-chu">Tiệm sẽ xác nhận lại đơn với bạn qua điện thoại.</p>
+    <button type="button" class="xoa-het" id="xoa-gio" hidden>Xóa giỏ hàng</button>
+  </div>
+</aside>
+
+<script>
+  // Hiển thị "Đang mở cửa" / "Đã đóng cửa" theo giờ Việt Nam
+  (function () {
+    var el = document.getElementById("status");
+    var hour = parseInt(new Intl.DateTimeFormat("en-GB", {
+      hour: "2-digit", hour12: false, timeZone: "Asia/Ho_Chi_Minh"
+    }).format(new Date()), 10);
+    if (hour >= 8 && hour < 20) {
+      el.textContent = "Đang mở cửa";
+      el.className = "status open";
+    } else {
+      el.textContent = "Đã đóng cửa, hẹn bạn 8 giờ sáng";
+      el.className = "status closed";
+    }
+  })();
+
+  // ===== Giỏ hàng =====
+  (function () {
+    var GIA = 10000, SDT = "0903848079", KEY = "xuanmai-gio", gio = {};
+    try {
+      var luu = JSON.parse(localStorage.getItem(KEY) || "{}");
+      if (luu && typeof luu === "object") {
+        Object.keys(luu).forEach(function (t) {
+          var n = luu[t];
+          if (t.length <= 60 && typeof n === "number" && n > 0 && n <= 99 && n % 1 === 0) gio[t] = n;
+        });
+      }
+    } catch (e) {}
+
+    var $ = function (id) { return document.getElementById(id); };
+    var nen = $("gio-nen"), panel = $("gio-panel"), moBtn = $("mo-gio"), badge = $("so-luong"),
+        ds = $("gio-ds"), tongEl = $("tong-tien"), goi = $("dat-goi"), nhan = $("dat-nhan"),
+        xoaHet = $("xoa-gio"), dongBtn = $("dong-gio");
+
+    function tien(n) { return n.toLocaleString("en-US") + "đ"; }
+    function tongSo() { return Object.keys(gio).reduce(function (s, t) { return s + gio[t]; }, 0); }
+    function luuGio() { try { localStorage.setItem(KEY, JSON.stringify(gio)); } catch (e) {} }
+    function nutNho(chu, nhanDan, fn) {
+      var b = document.createElement("button");
+      b.type = "button"; b.textContent = chu; b.setAttribute("aria-label", nhanDan);
+      b.addEventListener("click", fn);
+      return b;
+    }
+    function doi(t, d) {
+      var n = (gio[t] || 0) + d;
+      if (n <= 0) { delete gio[t]; } else { gio[t] = Math.min(n, 99); }
+      luuGio(); ve();
+    }
+    function ve() {
+      var ten = Object.keys(gio), sl = tongSo(), tong = sl * GIA;
+      ds.textContent = "";
+      if (!ten.length) {
+        var p = document.createElement("p");
+        p.className = "gio-trong";
+        p.textContent = "Giỏ hàng đang trống. Chọn loại hoa bạn thích và bấm “Mua”.";
+        ds.appendChild(p);
+      }
+      ten.forEach(function (t) {
+        var dong = document.createElement("div");
+        dong.className = "dong-hang";
+        var tt = document.createElement("div");
+        tt.className = "thong-tin";
+        var ten1 = document.createElement("strong");
+        ten1.textContent = t;
+        var gia = document.createElement("span");
+        gia.textContent = tien(GIA * gio[t]);
+        tt.appendChild(ten1); tt.appendChild(gia);
+        var dk = document.createElement("div");
+        dk.className = "so-luong";
+        var so = document.createElement("span");
+        so.className = "so";
+        so.textContent = gio[t] + " cành";
+        dk.appendChild(nutNho("−", "Giảm số lượng " + t, function () { doi(t, -1); }));
+        dk.appendChild(so);
+        dk.appendChild(nutNho("+", "Tăng số lượng " + t, function () { doi(t, 1); }));
+        dong.appendChild(tt); dong.appendChild(dk);
+        ds.appendChild(dong);
+      });
+      tongEl.textContent = tien(tong);
+      badge.hidden = sl === 0;
+      badge.textContent = sl;
+      moBtn.setAttribute("aria-label", sl ? "Mở giỏ hàng, có " + sl + " cành hoa" : "Mở giỏ hàng");
+      xoaHet.hidden = sl === 0;
+      if (sl) {
+        var dongDon = ten.map(function (t) { return "- " + t + ": " + gio[t] + " cành"; });
+        var noiDung = "Đặt hoa Xuân Mai:\n" + dongDon.join("\n") + "\nTổng: " + tien(tong);
+        goi.href = "tel:" + SDT;
+        nhan.href = "sms:" + SDT + "?&body=" + encodeURIComponent(noiDung);
+        goi.removeAttribute("aria-disabled");
+        nhan.removeAttribute("aria-disabled");
+      } else {
+        goi.removeAttribute("href"); nhan.removeAttribute("href");
+        goi.setAttribute("aria-disabled", "true");
+        nhan.setAttribute("aria-disabled", "true");
+      }
+    }
+
+    var truoc = null;
+    function mo() {
+      truoc = document.activeElement;
+      nen.classList.add("mo"); panel.classList.add("mo");
+      document.documentElement.style.overflow = "hidden";
+      setTimeout(function () { dongBtn.focus(); }, 40);
+    }
+    function dong() {
+      nen.classList.remove("mo"); panel.classList.remove("mo");
+      document.documentElement.style.overflow = "";
+      if (truoc && truoc.focus) truoc.focus();
+    }
+    moBtn.addEventListener("click", mo);
+    dongBtn.addEventListener("click", dong);
+    nen.addEventListener("click", dong);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && panel.classList.contains("mo")) dong();
+    });
+    xoaHet.addEventListener("click", function () { gio = {}; luuGio(); ve(); });
+
+    Array.prototype.forEach.call(document.querySelectorAll(".mua"), function (a) {
+      var goc = a.textContent, timer;
+      a.setAttribute("role", "button");
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        doi(a.closest(".loai").querySelector("h3").textContent.trim(), 1);
+        a.textContent = "Đã thêm ✓";
+        clearTimeout(timer);
+        timer = setTimeout(function () { a.textContent = goc; }, 1000);
+      });
+      a.addEventListener("keydown", function (e) {
+        if (e.key === " ") { e.preventDefault(); a.click(); }
+      });
+    });
+
+    ve();
+  })();
+</script>
+
+<script>
+  // ===== Quản lý đơn hàng =====
+  (function () {
+    var KEY = "xuanmai-don-hang";
+    var TRANG_THAI = ["Mới", "Đang xử lý", "Hoàn thành"];
+    var don = [], dangSua = null, choXoa = null, luuDuoc = true, timerTb;
+
+    function $(id) { return document.getElementById(id); }
+    function tao(tag, cls, text) {
+      var e = document.createElement(tag);
+      if (cls) e.className = cls;
+      if (text !== undefined) e.textContent = text;
+      return e;
+    }
+    function tien(n) { return Math.round(n).toLocaleString("en-US") + "đ"; }
+    function lopTT(t) { return t === "Mới" ? "dh-tt-moi" : (t === "Đang xử lý" ? "dh-tt-xuly" : "dh-tt-xong"); }
+
+    function hopLe(x) {
+      return x && typeof x.ten === "string" && typeof x.hoa === "string" &&
+        isFinite(x.sl) && isFinite(x.gia) && TRANG_THAI.indexOf(x.trangThai) >= 0;
+    }
+    function doc() {
+      try {
+        var r = JSON.parse(localStorage.getItem(KEY) || "[]");
+        if (Array.isArray(r)) {
+          return r.filter(hopLe).map(function (x, i) {
+            return {
+              id: typeof x.id === "string" ? x.id : "d" + Date.now() + i,
+              ten: x.ten, hoa: x.hoa, sl: Number(x.sl), gia: Number(x.gia),
+              trangThai: x.trangThai,
+              taoLuc: typeof x.taoLuc === "number" ? x.taoLuc : Date.now()
+            };
+          });
+        }
+      } catch (e) { luuDuoc = false; }
+      return [];
+    }
+    function capNhatGhiChu() {
+      if (!luuDuoc) {
+        var g = $("dh-ghichu");
+        g.className = "dh-ghichu dh-canhbao";
+        g.textContent = "Trình duyệt này không cho lưu dữ liệu, nên đơn hàng sẽ mất khi tải lại trang. Hãy thử mở trang bằng trình duyệt bình thường (không dùng chế độ ẩn danh).";
+      }
+    }
+    function ghi() {
+      try { localStorage.setItem(KEY, JSON.stringify(don)); } catch (e) { luuDuoc = false; }
+      capNhatGhiChu();
+    }
+    function thongBao(chu, loi) {
+      var t = $("dh-thongbao");
+      t.textContent = chu;
+      t.className = "dh-thongbao" + (loi ? " dh-loi" : "");
+      clearTimeout(timerTb);
+      timerTb = setTimeout(function () { t.textContent = ""; }, 3000);
+    }
+
+    function ve() {
+      var body = $("dh-than");
+      body.textContent = "";
+      var ds = don.slice().sort(function (a, b) { return b.taoLuc - a.taoLuc; });
+      if (!ds.length) {
+        var tr0 = tao("tr");
+        var td0 = tao("td", "dh-trong", "Chưa có đơn hàng nào. Nhập thông tin vào form rồi bấm “Thêm đơn”.");
+        td0.colSpan = 8;
+        tr0.appendChild(td0);
+        body.appendChild(tr0);
+      }
+      ds.forEach(function (d) {
+        var tr = tao("tr", dangSua === d.id ? "dh-dangsua" : "");
+        tr.appendChild(tao("td", "", new Date(d.taoLuc).toLocaleDateString("vi-VN")));
+        tr.appendChild(tao("td", "dh-ten", d.ten));
+        tr.appendChild(tao("td", "", d.hoa));
+        tr.appendChild(tao("td", "dh-r", String(d.sl)));
+        tr.appendChild(tao("td", "dh-r", tien(d.gia)));
+        tr.appendChild(tao("td", "dh-r dh-tien", tien(d.sl * d.gia)));
+
+        var tdT = tao("td");
+        var sel = tao("select", "dh-trangthai " + lopTT(d.trangThai));
+        sel.setAttribute("aria-label", "Trạng thái đơn của " + d.ten);
+        TRANG_THAI.forEach(function (t) {
+          var op = tao("option", "", t);
+          op.value = t;
+          sel.appendChild(op);
+        });
+        sel.value = d.trangThai;
+        sel.addEventListener("change", function () { d.trangThai = sel.value; ghi(); ve(); });
+        tdT.appendChild(sel);
+        tr.appendChild(tdT);
+
+        var tdA = tao("td");
+        var nhom = tao("div", "dh-thaotac");
+        var nutSua = tao("button", "dh-nho", "Sửa");
+        nutSua.type = "button";
+        nutSua.setAttribute("aria-label", "Sửa đơn của " + d.ten);
+        nutSua.addEventListener("click", function () { batDauSua(d); });
+        nhom.appendChild(nutSua);
+
+        if (choXoa === d.id) {
+          var nutXN = tao("button", "dh-nho xoa xacnhan", "Xác nhận xóa");
+          nutXN.type = "button";
+          nutXN.addEventListener("click", function () {
+            don = don.filter(function (x) { return x.id !== d.id; });
+            choXoa = null;
+            if (dangSua === d.id) huySua();
+            ghi(); ve();
+            thongBao("Đã xóa đơn hàng.");
+          });
+          var nutKhong = tao("button", "dh-nho", "Không");
+          nutKhong.type = "button";
+          nutKhong.addEventListener("click", function () { choXoa = null; ve(); });
+          nhom.appendChild(nutXN);
+          nhom.appendChild(nutKhong);
+        } else {
+          var nutXoa = tao("button", "dh-nho xoa", "Xóa");
+          nutXoa.type = "button";
+          nutXoa.setAttribute("aria-label", "Xóa đơn của " + d.ten);
+          nutXoa.addEventListener("click", function () { choXoa = d.id; ve(); });
+          nhom.appendChild(nutXoa);
+        }
+        tdA.appendChild(nhom);
+        Array.prototype.forEach.call(tr.children, function (o, i) {
+          o.setAttribute("data-label", ["Ngày", "Khách hàng", "Loại hoa", "Số lượng", "Đơn giá", "Thành tiền", "Trạng thái", "Thao tác"][i] || "");
+        });
+        tdA.setAttribute("data-label", "Thao tác");
+        tr.appendChild(tdA);
+        body.appendChild(tr);
+      });
+
+      var doanhThu = 0, dem = { "Mới": 0, "Đang xử lý": 0, "Hoàn thành": 0 };
+      don.forEach(function (d) {
+        dem[d.trangThai]++;
+        if (d.trangThai === "Hoàn thành") doanhThu += d.sl * d.gia;
+      });
+      $("dh-doanhthu").textContent = tien(doanhThu);
+      $("dh-moi").textContent = dem["Mới"];
+      $("dh-xuly").textContent = dem["Đang xử lý"];
+      $("dh-xong").textContent = dem["Hoàn thành"];
+    }
+
+    var f = { ten: $("dh-ten"), hoa: $("dh-hoa"), sl: $("dh-sl"), gia: $("dh-gia"), tt: $("dh-tt") };
+    function xemTien() {
+      var sl = Number(f.sl.value), gia = Number(f.gia.value);
+      $("dh-xem-tien").textContent = tien((sl > 0 && gia >= 0) ? sl * gia : 0);
+    }
+    f.sl.addEventListener("input", xemTien);
+    f.gia.addEventListener("input", xemTien);
+    function datLaiForm() {
+      f.ten.value = ""; f.hoa.value = ""; f.sl.value = "1"; f.gia.value = "10000"; f.tt.value = "Mới";
+      xemTien();
+    }
+    function huySua() {
+      dangSua = null;
+      $("dh-khung").classList.remove("sua");
+      $("dh-tieude").textContent = "Thêm đơn hàng";
+      $("dh-luu").textContent = "Thêm đơn";
+      $("dh-huy").hidden = true;
+      datLaiForm();
+    }
+    function batDauSua(d) {
+      dangSua = d.id; choXoa = null;
+      f.ten.value = d.ten; f.hoa.value = d.hoa; f.sl.value = d.sl; f.gia.value = d.gia; f.tt.value = d.trangThai;
+      xemTien();
+      $("dh-khung").classList.add("sua");
+      $("dh-tieude").textContent = "Sửa đơn hàng";
+      $("dh-luu").textContent = "Lưu thay đổi";
+      $("dh-huy").hidden = false;
+      ve();
+      $("dh-khung").scrollIntoView({ behavior: "smooth", block: "nearest" });
+      f.ten.focus();
+    }
+    $("dh-huy").addEventListener("click", function () { huySua(); ve(); });
+
+    $("dh-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ten = f.ten.value.trim(), hoa = f.hoa.value.trim();
+      var sl = parseInt(f.sl.value, 10), gia = Number(f.gia.value);
+      if (!ten || !hoa) { thongBao("Vui lòng nhập tên khách hàng và loại hoa.", true); return; }
+      if (!(sl >= 1)) { thongBao("Số lượng phải từ 1 trở lên.", true); return; }
+      if (f.gia.value === "" || !(gia >= 0)) { thongBao("Vui lòng nhập giá hợp lệ.", true); return; }
+      if (dangSua) {
+        don.forEach(function (d) {
+          if (d.id === dangSua) { d.ten = ten; d.hoa = hoa; d.sl = sl; d.gia = gia; d.trangThai = f.tt.value; }
+        });
+        huySua();
+        ghi(); ve();
+        thongBao("Đã lưu thay đổi.");
+      } else {
+        don.push({
+          id: "d" + Date.now() + Math.random().toString(36).slice(2, 7),
+          ten: ten, hoa: hoa, sl: sl, gia: gia, trangThai: f.tt.value, taoLuc: Date.now()
+        });
+        datLaiForm();
+        ghi(); ve();
+        thongBao("Đã thêm đơn hàng.");
+        f.ten.focus();
+      }
+    });
+
+    don = doc();
+    capNhatGhiChu();
+    xemTien();
+    ve();
+  })();
+</script>
+
+</body>
+</html>
